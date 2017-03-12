@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<script>
+    function redirect() {
+        window.location = "http://localhost:52740/Home/SelectQuartos";
+    };
+
+</script>
+
+<div class="jumbotron">
+    <h1>Hotel AspModelView</h1>
+    <p class="lead">Um lar fora de casa.</p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Suítes e Quartos</h2>
+        <p>
+            Escolha um de nossos quartos. Preços diferenciados dentro e fora de temporada.
+        </p>
+        <p>@Html.ActionLink("Buscar Quartos", "List", "Home")</p>
+        <p>@Html.ActionLink("Adicionar Quarto", "Adicionar", "Home")</p>
+    </div>
+    <div class="col-md-4">
+        <h2>CADASTRO DE CLIENTES</h2>
+        <p>@Html.ActionLink("Buscar Pessoas", "ListPessoas", "Home")</p>
+        <p>@Html.ActionLink("Adicionar Pessoa", "AdicionarPessoas", "Home")</p>
+
+    </div>
+    <div class="col-md-4">
+        <h2>Reservas</h2>
+        <p>@Html.ActionLink("Reserva", "AdicionarReserva", "Home")</p>
+        <p>@Html.ActionLink("Listar Reserva", "ListReserva", "Home")</p>
+     </div>
+</div>

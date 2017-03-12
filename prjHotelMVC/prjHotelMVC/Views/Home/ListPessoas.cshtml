@@ -1,0 +1,102 @@
+﻿@model IEnumerable<prjHotelMVC.Models.Pessoa>
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ListPessoas</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Adicionar", "AdicionarPessoas")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayName("Nome")
+            </th>
+            <th>
+                @Html.DisplayName("Endereço")
+            </th>
+            <th>
+                @Html.DisplayName("Cidade")
+            </th>
+            <th>
+                @Html.DisplayName("Estado")
+            </th>
+            <th>
+                @Html.DisplayName("País")
+            </th>
+            <th>
+                @Html.DisplayName("E-mail")
+            </th>
+            <th>
+                @Html.DisplayName("Telefone")
+            </th>
+            <th>
+                @Html.DisplayName("Celular")
+            </th>
+            <th>
+                @Html.DisplayName("CPF")
+            </th>
+            <th>
+                @Html.DisplayName("CEP")
+            </th>
+            <th>
+                @Html.DisplayName("RG")
+            </th>
+            <th>
+                @Html.DisplayName("Data de Nascimento(ano-mês-dia)")
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.endereco)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.estado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pais)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.telefone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.celular)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CPF)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CEP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RG)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dataNasc)
+            </td>
+            <td>
+                @Html.ActionLink("Apagar", "ApagarPessoas", new { id=item.id })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

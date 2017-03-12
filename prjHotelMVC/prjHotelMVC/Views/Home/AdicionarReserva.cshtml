@@ -1,0 +1,126 @@
+﻿@model prjHotelMVC.Models.Reserva
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AdicionarReserva</title>
+</head>
+<body>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Reserva</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+            <div class="form-group">
+
+                <table style="width:80%">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Tipo</th>
+                        <th>Descrição</th>
+                        <th>Quantidade de Hóspedes</th>
+                    </tr>
+
+                    @for (int index = 0; index < Model.listaQuartos.Count; index++)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(model => model.listaQuartos[index].id);</td>
+                            <td>@Html.DisplayFor(model => model.listaQuartos[index].nome);</td>
+                            <td>@Html.DisplayFor(model => model.listaQuartos[index].tipo);</td>
+                            <td>@Html.DisplayFor(model => model.listaQuartos[index].desc);</td>
+                            <td>@Html.DisplayFor(model => model.listaQuartos[index].quantHospedes);</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+
+            <div class="form-group">
+                <table style="width:80%">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>CPF</th>
+                    </tr>
+
+                    @for (int index = 0; index < Model.pessoas.Count; index++)
+                    {
+
+                        <tr>
+                            <td>@Html.DisplayFor(model => model.pessoas[index].id);</td>
+                            <td>@Html.DisplayFor(model => model.pessoas[index].nome);</td>
+                            <td>@Html.DisplayFor(model => model.pessoas[index].CPF);</td>
+                        </tr>
+                    }
+                </table>
+
+            </div>
+
+
+            <div class="form-group">
+                @Html.Label("Data de Entrada:", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @*@Html.EditorFor(model => model.dEntrada, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @Html.TextBoxFor(model => model.dEntrada, new { type = "date" })
+                    @Html.ValidationMessageFor(model => model.dEntrada, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Data de Saída:", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @*@Html.EditorFor(model => model.dSaida, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @Html.TextBoxFor(model => model.dSaida, new { type = "date" })
+                    @Html.ValidationMessageFor(model => model.dSaida, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.idQuarto, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.idQuarto, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.idQuarto, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.idPessoa, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.idPessoa, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.idPessoa, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            @*<div class="form-group">
+                    @Html.LabelFor(model => model.valor, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.valor, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.valor, "", new { @class = "text-danger" })
+                    </div>
+                </div>*@
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+</body>
+</html>

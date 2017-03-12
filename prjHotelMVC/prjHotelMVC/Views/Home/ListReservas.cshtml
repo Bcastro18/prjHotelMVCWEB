@@ -1,0 +1,63 @@
+﻿@model IEnumerable<prjHotelMVC.Models.Reserva>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ListReservas</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Adicionar", "Adicionar")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.dEntrada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.dSaida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.valor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.idQuarto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.idPessoa)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.dEntrada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dSaida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.valor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.idQuarto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.idPessoa)
+            </td>
+            <td>
+                @Html.ActionLink("Apagar", "ApagarReserva", new { id=item.id })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>
